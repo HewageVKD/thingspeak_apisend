@@ -1,0 +1,70 @@
+<html>
+<head>
+
+
+<style>
+
+.buton{
+	border-radius:.5rem;
+	background-color: #1968D9;
+	border-color: #FFE0D9;
+	margin:5px;
+	padding:10px;
+	width: 70%;
+	border: 0;
+	color:white
+	
+}
+
+.textin{
+	border-radius:.5rem;
+	border-color: #FFE0D9;
+	margin:5px;
+	padding:10px;
+	width: 70%;
+	border:1;
+	background-color:#EFEFEF;
+}
+
+</style>
+
+
+
+</head>
+<body>
+<br><br><br><br><br><br><br><br>
+<center>
+
+<input type='text' name='sendvalue' id='sendvalue' class='textin'>
+<button id='btn' id='btn' onclick="tempsend()" class="buton">Send</button>
+
+</center>
+
+<script>
+
+function tempsend(){
+
+	//https://thingspeak.com/channels/2575417/
+
+	//-------------------------------------------------------------------------------------------
+	var apikey = "ZQHPNRS4OXUBQXOI"; //change your thingspeak channel API KEY
+	var field = "field1" //change the field number
+	//-------------------------------------------------------------------------------------------
+
+	var value = document.getElementById("sendvalue").value;
+
+	if (value <= 10){
+		var link = "https://api.thingspeak.com/update?api_key="+apikey+"&"+field+"="+value;
+		window.open(link);
+	}
+	else{
+		alert("Error");
+	}
+
+
+} 
+
+</script>
+
+</body>
+</html>
